@@ -29,10 +29,16 @@ The following points are considered fouls.
     Play fair and stay focussed. 
 3. (Regarding Overtime Rule) Do not write additional tests if it is your time to write Code
 4. The tests given (if not marked as fouled) are not to be altered! 
+    A certain degree of altering (=refactoring) is ok.
+    This includes: 
+    - Renaming methods (but not )
+    - Renaming variables (but not changing their type)
+    - Renaming the Tests
 5. Invalid Java - This is a necessary requirement so everyone CAN achieve the tests. 
     This foul only leads to removed tests. If there are minimal problems, the moderators may fix the test.
     You may ask your moderators on help how to express yourself. 
-
+6. Using 3rd Party Libraries. Only Java Standard is valid. Java is Turing complete, so you should be good. 
+7. Writing impossible tests 
 
 # Overtime in writing tests
 If both teams need more time to write tests, a global overtime is given. 
