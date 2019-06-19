@@ -1,8 +1,11 @@
 # Exercise 1: Echomat
+
 In this first Task, we will make a simple object which greets persons and repeats strings. 
 
 ## Requirements Echomat
-The Echomat should ... 
+
+The Echomat should ...
+
 - have a method "hello()" which gives a short welcome to anybody
 - have a method "greet(name)" which gives a short welcome to a certain somebody, the name should be contained 
 - have a method "echo(text)" which takes a text, and gives a list of strings, which acts like an echo (example below)
@@ -13,6 +16,7 @@ In Addition, the Echomat should have some corner cases:
 - greet(name) should check if the name is a single word, otherwise it should throw an error
 
 ## Examples Echomat
+
 hello() -> "I am the Echomat! Welcome!"
 
 greet("Leonhard") -> "Hello Leonhard!"
@@ -24,6 +28,7 @@ echo("E") -> InvalidArgumentException
 greet("Leonhard Applis") -> Invalid Argument Exception
 
 ## ToDo - Step by Step
+
 1. Check for the UnitTests in the class "EchomatTests", there are two tests for basic cases of the Echomat
 2. Run the tests - they should fail 
 3. Write Code that fulfills the tests (only the tests, not the special cases)
@@ -36,6 +41,7 @@ greet("Leonhard Applis") -> Invalid Argument Exception
 10. Run your Tests - if green, cheer!
 
 ## Goals
+
 - Understand a simple Unit test
 - Write Simple Unit Tests
 - Write Code that fulfills the tests

@@ -30,7 +30,7 @@ There are following constraints on Ant:
 - if the ant has food, and eat reduces the nutritionvalue to 0, it gets dropped
 - if the ant has food, and pickupFood is called, the new food is picked up and the old one is dropped
 
-## Example Food
+## Example Ant
 
 ### Eat Food
 
