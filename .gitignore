@@ -11,4 +11,18 @@
 /**.snm
 /**.nav
 
+/**/*.aux
+/Sources/*.aux
+/Sources/*.out
+/Sources/*.bbl
+/Sources/*.toc
+/Sources/*.lof
+/Sources/*.log*
+/Sources/*.blg
+/Sources/*.gz
+/Sources/*.nlo
+/Sources/*.snm
+/Sources/*.nav
+
 /**.pdf
+/Sources/*.pdf
