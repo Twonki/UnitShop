@@ -37,7 +37,7 @@ Play fair and stay focussed.
 4. The tests given (if not marked as fouled) are not to be altered! <br>
 A certain degree of altering (=refactoring) is ok.<br>
 This includes:
-    - Renaming methods (but not )
+    - Renaming methods (but not changing their behaviour)
     - Renaming variables (but not changing their type)
     - Renaming the Tests
 5. Invalid Java - This is a necessary requirement so everyone CAN achieve the tests. <br>
