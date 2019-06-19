@@ -1,0 +1,14 @@
+/**/*.aux
+/**.aux
+/**.out
+/**.bbl
+/**.toc
+/**.lof
+/**.log*
+/**.blg
+/**.gz
+/**.nlo
+/**.snm
+/**.nav
+
+/**.pdf

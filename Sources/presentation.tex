@@ -1,0 +1,118 @@
+\documentclass[12pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+\usetheme{default}
+
+\begin{document}
+	\author{Leonhard Applis}
+	\title{Unit-Testing Essentials}
+	%\subtitle{}
+	%\logo{}
+	%\institute{}
+	%\date{}
+	%\subject{}
+	%\setbeamercovered{transparent}
+	%\setbeamertemplate{navigation symbols}{}
+	\begin{frame}[plain]
+		\maketitle
+	\end{frame}
+	
+	\section{Introduction}
+	
+	\begin{frame}
+		\frametitle{What is a Unit-Test?}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{XUnit}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Example 1: Point Distance Test}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Example 1: Point Distance Code}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{JUnit markup words}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Best Practice - No Global Dependencies}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{One 'Test' per Test}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Arrange - Act - Assert}
+	\end{frame}
+	
+	\section{Stubs and Mocks}
+	
+	\begin{frame}
+		\frametitle{Working with dependent Objects}
+		For Inter-Object communication there are usually 2 cases:
+		\begin{enumerate}
+			\item To do something, i need another object
+			\item My actions change another object
+		\end{enumerate}
+		No matter if these items are global (variables), static (System Args) or external (such as databases) 
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Stubs}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Example 2: UpdateManager}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Stubs: Why Interfaces are your friends}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Mocks}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Example 3}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Stubs vs. Mocks vs. Fakes}
+	\end{frame}
+	
+	\section{TestStrategy: Test-First vs Test-Last-If-Ever}
+	
+	\begin{frame}
+		\frametitle{Naming - Good vs. Bad}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Test First}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Test-Driven-Development}
+		\framesubtitle{RED-GREEN-REFACTOR}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{TDD-Schools}
+		\begin{enumerate}
+			\item \textbf{London-School:} "Mock Everything" \newline Mocking forces nice interfaces and code that uses nice interfaces. 
+			\item \textbf{Chicago-School:} "Mock Nothing" 
+			\newline Mocking bloats the code, and makes sometimes no sense. 
+			\item \textbf{Munich-School:}" "Mock what makes sense" 
+			\newline don´t focus on a "school" - do what goes best and respect the language 
+		\end{enumerate}
+	\end{frame}
+	
+\end{document}
