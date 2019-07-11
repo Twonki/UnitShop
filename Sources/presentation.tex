@@ -23,10 +23,42 @@
 	
 	\begin{frame}
 		\frametitle{What is a Unit-Test?}
+		\framesubtitle{Definition}
+		A Unit Test ... 
+		\begin{enumerate}
+			\item tests a single piece of functionality
+			\item is written by the developer
+			\item should not depend on any other, external resource
+			\item should be run with every change of the code
+		\end{enumerate}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Unit-Test Examples}
+		These are Unit Tests ...
+		\begin{itemize}
+			\item testing the distance-function of a point to another point
+			\item testing whether the sort() function of your list sorts the list 
+			\item testing whether a constructor fails for null-values
+		\end{itemize}
+		These are \textbf{not} Unit Tests...
+		\begin{itemize}
+			\item read and write to an database 
+			\item sending an http-request to an api 
+			\item checking if an config-file is successfully read
+		\end{itemize}
 	\end{frame}
 
 	\begin{frame}
 		\frametitle{XUnit}
+		\begin{itemize}
+			\item A common way of writing unit tests
+			\item NUnit, JUnit, HUnit, ...
+			\item tests are written as functions, which have an assert statement
+			\item if the assert succeeds, the test is green
+			\item if the assert fails, the test is red and the difference is shown
+			\item as functions, tests can be debugged
+		\end{itemize}
 	\end{frame}
 	
 	\begin{frame}
@@ -39,7 +71,15 @@
 	
 	\begin{frame}
 		\frametitle{JUnit markup words}
+		\begin{itemize}
+			\item \textit{@Test} marks that the following function is a Test
+			\item \textit{assertEquals(expected,actual)} is used to check values - warning: for objects the \textit{equals()} method is used 
+			\item \textit{assertFalse(...),assertTrue(...),assertThrowsException(...)} are shortcuts to write smaller and more expressive tests
+			\item \textit{@Tag "xy"} gives the test a filterable tag, e.g. you could run only \textit{fast} tests
+		\end{itemize}
 	\end{frame}
+
+	\section{Best Practices}
 
 	\begin{frame}
 		\frametitle{Best Practice - No Global Dependencies}
@@ -59,7 +99,7 @@
 		\frametitle{Working with dependent Objects}
 		For Inter-Object communication there are usually 2 cases:
 		\begin{enumerate}
-			\item To do something, i need another object
+			\item To do something, I need another object
 			\item My actions change another object
 		\end{enumerate}
 		No matter if these items are global (variables), static (System Args) or external (such as databases) 
