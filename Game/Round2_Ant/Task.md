@@ -24,6 +24,7 @@ The Ant must have the following methods:
 There are following constraints on Ant:
 
 - the id cannot be null or empty
+- the hunger can not be negative
 - the position cannot be null or negative (neither x nor y)
 - if the ant has no food, dropfood does nothing
 - if the ant has no food, eatfood does nothing
