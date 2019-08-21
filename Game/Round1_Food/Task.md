@@ -13,7 +13,7 @@ Food must
 The food must have the following methods:
 
 - a constructor with name, point and nutrition value
-- *equals*, which should yield equals for food with the same name on the same position
+- *equals*, which should return true for food with the same name on the same position, otherwhise false
 - *nibble(int nib)* which reduces the nutrition value by nib, and returns the nibbled value (see example) 
 
 There are following constraints on food:
