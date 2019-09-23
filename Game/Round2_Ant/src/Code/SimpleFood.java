@@ -57,5 +57,10 @@ public class SimpleFood implements Food {
 	public void setPoint(Point point) {
 		this.point = point;
 	}
+
+	@Override
+	public int getNutritionValue() {
+		return nutritionValue;
+	}
 	
 }

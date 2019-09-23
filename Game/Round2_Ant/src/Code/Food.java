@@ -9,4 +9,6 @@ public interface Food {
 	Point getPoint();
 	void setPoint(Point point);
 
+	int getNutritionValue();
+
 }

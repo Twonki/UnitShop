@@ -14,7 +14,7 @@ public class FoodTest {
 		assertTrue(testobject.name == "testfood");
 		assertTrue(testobject.getPoint().x == 1);
 		assertTrue(testobject.getPoint().y == 1);
-		assertTrue(testobject.nutritionValue == 50);
+		assertTrue(testobject.getNutritionValue() == 50);
 	}
 	
 	@Test
@@ -137,7 +137,7 @@ public class FoodTest {
 		
 		testobject.nibble(10);
 		
-		assertEquals(40,testobject.nutritionValue);
+		assertEquals(40,testobject.getNutritionValue());
 	};
 	
 	@Test
@@ -146,7 +146,7 @@ public class FoodTest {
 		
 		testobject.nibble(60);
 		
-		assertEquals(0,testobject.nutritionValue);
+		assertEquals(0,testobject.getNutritionValue());
 	}
 	
 	@Test
