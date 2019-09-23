@@ -1,16 +1,14 @@
 package Code;
 import java.awt.Point;
 
-import Food.Food;
-
 public class Ant {
 
 	public Integer id;
 	public Point point = new Point();
 	public int hungerValue =  0;
-	public Food food = null;
+	public SimpleFood food = null;
 	
-	public Ant(Integer id, double x, double y, Integer hunger, Food food) {
+	public Ant(Integer id, double x, double y, Integer hunger, SimpleFood food) {
 	if(id >= 0)
 		this.id = id;
 	else
@@ -27,7 +25,7 @@ public class Ant {
 	this.food = food;
 	}
 	
-	public void pickupFood(Food food) {
+	public void pickupFood(SimpleFood food) {
 	if(this.food != null)
 		this.dropFood();
 		this.food = food;
@@ -35,8 +33,8 @@ public class Ant {
 
 	public void dropFood() {
 	if(this.food != null) {
-		this.food.point.x = this.point.x;
-		this.food.point.y = this.point.y;
+		this.food.getPoint().x = this.point.x;
+		this.food.getPoint().y = this.point.y;
 		this.food = null;}
 	else {}
 	}

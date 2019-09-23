@@ -14,8 +14,8 @@ public class FoodTest {
 	void testConstructor_allValuesAreOk_shouldBeBuuldwithSetValues() {
 		Food testobject = new Food("testfood",1,1,50);
 		assertTrue(testobject.name == "testfood");
-		assertTrue(testobject.point.x == 1);
-		assertTrue(testobject.point.y == 1);
+		assertTrue(testobject.getPoint().x == 1);
+		assertTrue(testobject.getPoint().y == 1);
 		assertTrue(testobject.nutritionValue == 50);
 	}
 	
@@ -136,5 +136,23 @@ public class FoodTest {
 		assertEquals(0,testobject.nutritionValue);
 	}
 	
+	@Test
+	void testGetPoint_returnPoint_shouldReturnFoodObjectPoint()
+	{
+		Food testobject = new Food("testfooo",1,1,50);
+		Point testpoint = new Point(1,1);
+		
+		assertTrue(testpoint.x == testobject.getPoint().getX() && testpoint.y == testobject.getPoint().y);
+	}
+	
+	@Test
+	void testSetPoint_setPointToValue_pointShouldGetSetValues()
+	{
+		Food testobject = new Food("testfooo",1,1,50);
+		Point testpoint = new Point(2,2);
+		testobject.setPoint(testpoint);
+		
+		assertTrue(testobject.getPoint().x == 2 && testobject.getPoint().y == 2);
+	}
 	
 }
