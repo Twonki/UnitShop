@@ -9,7 +9,7 @@ An ant must:
 - Have a Position (x,y)
 - Have an id (int)
 - Have a hunger value (integer)
-- CAN Have a food it is carrying (Optional\<Food>)
+- CAN Have a food it is carrying
 
 The Ant must have the following methods:
 

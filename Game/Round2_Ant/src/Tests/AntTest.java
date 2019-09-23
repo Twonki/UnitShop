@@ -150,11 +150,13 @@ public class AntTest {
 	
 	@Test
 	void testPickUpFood_ifAntHasFood_NewFoodShouldBeHeld() {
-		FakeFood testfood = new FakeFood();
-		FakeFood testfood2 = new FakeFood();
-		Ant testant = new Ant(1,2,2,testfood);
-		testant.pickupFood(testfood2);
-		assertTrue(testant.food == testfood2);
+		FakeFood oldFood = new FakeFood();
+		FakeFood newFood = new FakeFood();
+		Ant testant = new Ant(1,2,2,oldFood);
+		
+		testant.pickupFood(newFood);
+		
+		assertTrue(testant.food == newFood);
 	}
 }
 
