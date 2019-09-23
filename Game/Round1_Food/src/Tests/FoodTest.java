@@ -1,9 +1,7 @@
 package Tests;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 import java.awt.Point;
-
 import org.junit.jupiter.api.Test;
 
 import Code.Food;
@@ -11,7 +9,7 @@ import Code.Food;
 public class FoodTest {
 	
 	@Test
-	void testConstructor_allValuesAreOk_shouldBeBuuldwithSetValues() {
+	void testConstructor_allValuesAreOk_shouldBeBuildWithSetValues() {
 		Food testobject = new Food("testfood",1,1,50);
 		assertTrue(testobject.name == "testfood");
 		assertTrue(testobject.getPoint().x == 1);
@@ -44,68 +42,83 @@ public class FoodTest {
 			assertThrows(IllegalArgumentException.class, () -> new Food("test",1,1,-10));
 	}
 	
-	//Change Task, it looks like only the name has to be equal.
 	@Test
 	void testEquals_sameObject_shouldBeEqualToItself_shouldBeTrue() {
+		Food testobject = new Food("testfood",1,1,1);
+
+		assertTrue(testobject.equals(testobject));
+	}
+
+	@Test
+	void testEquals_sameObjects_shouldBeEqual_shouldBeTrue() {
 		Food testobject1 = new Food("testfood",1,1,1);
 		Food testobject2 = new Food("testfood",1,1,1);
-		assertEquals(true,testobject1.equals(testobject2));
+
+		assertTrue(testobject1.equals(testobject2));
 	}
 	
 	@Test
 	void testEquals_sameNameDifferentPositionandNutritionvalue_shouldBeFalse() {
 		Food testobject1 = new Food("testfood",2,2,2);
 		Food testobject2 = new Food("testfood",1,1,1);
-		assertEquals(false,testobject1.equals(testobject2));
+
+		assertFalse(testobject1.equals(testobject2));
 	}
 	
 	@Test
 	void testEquals_sameNameAndPositionDifferentNutritionvalue_shouldBeFalse() {
 		Food testobject1 = new Food("testfood",1,1,2);
 		Food testobject2 = new Food("testfood",1,1,1);
-		assertEquals(false,testobject1.equals(testobject2));
+
+		assertFalse(testobject1.equals(testobject2));
 	}
 	
 	@Test
 	void testEquals_sameNameAndNutritionvalueDifferentPosition_shouldBeFalse() {
 		Food testobject1 = new Food("testfood",2,2,1);
 		Food testobject2 = new Food("testfood",1,1,1);
-		assertEquals(false,testobject1.equals(testobject2));
+
+		assertFalse(testobject1.equals(testobject2));
 	}
 	
 	@Test
 	void testEquals_samePositionDifferentNameAndNutritionvalue_shouldBeFalse() {
 		Food testobject1 = new Food("testfood",1,1,2);
 		Food testobject2 = new Food("testfood1",1,1,1);
-		assertEquals(false,testobject1.equals(testobject2));
+
+		assertFalse(testobject1.equals(testobject2));
 	}
 	
 	@Test
 	void testEquals_samePositionAndNutritionvalueDifferentName_shouldBeFalse() {
 		Food testobject1 = new Food("testfood",1,1,1);
 		Food testobject2 = new Food("testfood1",1,1,1);
-		assertEquals(false,testobject1.equals(testobject2));
+
+		assertFalse(testobject1.equals(testobject2));
 	}
 	
 	@Test
 	void testEquals_sameNutritionValueDifferentPositionAndName_shouldBeFalse() {
 		Food testobject1 = new Food("testfood",1,1,1);
 		Food testobject2 = new Food("testfood1",2,2,1);
-		assertEquals(false,testobject1.equals(testobject2));
+
+		assertFalse(testobject1.equals(testobject2));
 	}
 	
 	@Test
 	void testEquals_DifferentNameAndPositionAndNutritionValue_shouldBeFalse() {
 		Food testobject1 = new Food("testfood",2,2,2);
 		Food testobject2 = new Food("testfood1",1,1,1);
-		assertEquals(false,testobject1.equals(testobject2));
+
+		assertFalse(testobject1.equals(testobject2));
 	}
 	
 	@Test
 	void testEquals_compareToObjectOfDifferentClass_shouldBeFalse_shouldBeFalse() {
 		Food testobject1 = new Food("testfood",2,2,2);
 		Point testobject2 = new Point(1,1);
-		assertEquals(false,testobject1.equals(testobject2));
+
+		assertFalse(testobject1.equals(testobject2));
 	}
 	
 	
@@ -116,7 +129,7 @@ public class FoodTest {
 		
 		int result = testobject.nibble(10);
 		
-		assertEquals(result,10);
+		assertEquals(10,result);
 	}
 	
 	void testNibble_inputIsSmallerThanNutritionValue_NutritionValueShouldBeReducedByNibbleAMount() {
@@ -146,8 +159,7 @@ public class FoodTest {
 	}
 	
 	@Test
-	void testSetPoint_setPointToValue_pointShouldGetSetValues()
-	{
+	void testSetPoint_setPointToValue_pointShouldGetSetValues()	{
 		Food testobject = new Food("testfooo",1,1,50);
 		Point testpoint = new Point(2,2);
 		testobject.setPoint(testpoint);
