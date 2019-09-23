@@ -1,6 +1,7 @@
 package Tests;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 import java.awt.Point;
 import org.junit.jupiter.api.Test;
 

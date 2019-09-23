@@ -14,8 +14,9 @@ public class SimpleFood implements Food {
 			this.name = name;
 		else 
 			throw new IllegalArgumentException("Name cannot be null or empty!");
-		if(x >= 0 && y >= 0)
-			this.point.setLocation(x, y);
+		if(x >= 0 && y >= 0) {
+			point = new Point();
+			point.setLocation(x, y);}
 		else 
 			throw new IllegalArgumentException("Location must consist of positive numbers!");
 		if(nutritionValue >= 0)
@@ -28,14 +29,14 @@ public class SimpleFood implements Food {
 	public boolean equals(Object o) {
 		if (o == this)
 			return true;
-		if (! (o instanceof Food))
+		if (! (o instanceof SimpleFood))
 			return false;
 
-		Food foodobject = (Food) o;
+		SimpleFood foodobject = (SimpleFood) o;
 		return 
 			this.name == foodobject.name 
-			&& this.point.x == foodobject.point.x 
-			&& this.point.y == foodobject.point.y 
+			&& this.point.x == foodobject.getPoint().x 
+			&& this.point.y == foodobject.getPoint().y 
 			&& this.nutritionValue == foodobject.nutritionValue;	
 	}
 	

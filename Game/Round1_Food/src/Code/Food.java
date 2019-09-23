@@ -13,8 +13,9 @@ public class Food {
 			this.name = name;
 		else 
 			throw new IllegalArgumentException("Name cannot be null or empty!");
-		if(x >= 0 && y >= 0)
-			this.point.setLocation(x, y);
+		if(x >= 0 && y >= 0) {
+			point = new Point();
+			point.setLocation(x, y);}
 		else 
 			throw new IllegalArgumentException("Location must consist of positive numbers!");
 		if(nutritionValue >= 0)
