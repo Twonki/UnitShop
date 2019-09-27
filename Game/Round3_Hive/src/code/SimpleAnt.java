@@ -1,14 +1,17 @@
-package Code;
+package code;
 import java.awt.Point;
 
-public class Ant {
+import interfaces.Ant;
+import interfaces.Food;
+
+public class SimpleAnt implements Ant {
 
 	public Integer id;
-	public Point point;
-	public int hungerValue =  0;
-	public Food food = null;
+	private Point point;
+	private int hungerValue =  0;
+	private Food food = null;
 	
-	public Ant(Integer id, double x, double y, Food food) {
+	public SimpleAnt(Integer id, double x, double y, Food food) {
 		if(id >= 0)
 			this.id = id;
 		else
@@ -24,12 +27,29 @@ public class Ant {
 		this.food=food;
 	}
 	
+	public SimpleAnt(Integer id, double x, double y){
+		if(id >= 0)
+			this.id = id;
+		else
+			throw new IllegalArgumentException("ID cannot be smaller than 0");
+		
+		if(x >= 0 && y >= 0) {
+			point = new Point();
+			this.point.setLocation(x,y);
+		}
+		else
+			throw new IllegalArgumentException("Point cannot be negative");
+		
+	}
+	
+	@Override
 	public void pickupFood(Food food) {
 		if(this.food != null)
 			this.dropFood();
 		this.food = food;
 	}
 
+	@Override
 	public void dropFood() {
 		if(this.food != null) {
 			Point dropOff = new Point();
@@ -40,6 +60,7 @@ public class Ant {
 		}
 	}
 	
+	@Override
 	public void eatFood() {
 		if(food!=null) {
 			int nibbled = food.nibble(hungerValue);
@@ -56,6 +77,7 @@ public class Ant {
 		this.point = point;
 	}
 	
+	@Override
 	public void hungrier() {
 		this.hungerValue = this.hungerValue + 1;
 	}
