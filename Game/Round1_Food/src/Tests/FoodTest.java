@@ -133,6 +133,15 @@ public class FoodTest {
 		assertEquals(10,result);
 	}
 	
+	@Test
+	void testNibble_inputIsNumberBiggerThanNutrition_shouldReturnFullNibbleAmount() {
+		Food testobject = new Food("doesntmatter",0,0,50);
+		
+		int result = testobject.nibble(60);
+		
+		assertEquals(50,result);
+	}
+	
 	void testNibble_inputIsSmallerThanNutritionValue_NutritionValueShouldBeReducedByNibbleAMount() {
 		Food testobject = new Food("doesntmatter",0,0,50);
 		

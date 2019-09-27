@@ -44,8 +44,9 @@ public class Food {
 			this.nutritionValue = this.nutritionValue - nibble;
 			return nibble;
 		} else {
+			int nibbledAmount = nutritionValue;
 			this.nutritionValue = 0;
-			return nutritionValue;
+			return nibbledAmount;
 		}
 	}
 	
