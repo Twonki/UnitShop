@@ -13,5 +13,11 @@ public interface Ant {
 	void move(Point point);
 
 	void hungrier();
+	
+	boolean hasFood();
+
+	Integer getId();
+
+	Point getPosition();
 
 }

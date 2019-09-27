@@ -45,8 +45,9 @@ public class SimpleFood implements Food {
 			this.nutritionValue = this.nutritionValue - nibble;
 			return nibble;
 		} else {
+			var toReturn = nibble - nutritionValue;
 			this.nutritionValue = 0;
-			return nutritionValue;
+			return toReturn;
 		}
 	}
 	

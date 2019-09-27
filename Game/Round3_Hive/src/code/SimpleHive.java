@@ -42,7 +42,6 @@ public class SimpleHive implements Hive {
 			.ifPresent(x -> foodAmount += x);
 	}
 
-
 	public Point getPosition() {
 		return position;
 	}
@@ -59,7 +58,6 @@ public class SimpleHive implements Hive {
 
 
 	public Field getField() {
-		
 		return field;
 	}
 	
