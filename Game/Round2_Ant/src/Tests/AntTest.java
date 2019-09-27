@@ -159,4 +159,3 @@ public class AntTest {
 		assertTrue(testant.food == newFood);
 	}
 }
-
