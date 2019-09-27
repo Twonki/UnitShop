@@ -1,5 +1,8 @@
+package interfaces;
 
-public interface Map {
+import java.util.List;
+
+public interface Field {
 
 	public List<Ant> getAllAnts();
 	public List<Food> getAllFood();

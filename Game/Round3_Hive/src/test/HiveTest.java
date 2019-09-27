@@ -1,6 +1,6 @@
+package test;
 
 public class HiveTest {
 
-	public String name;
 	
 }
