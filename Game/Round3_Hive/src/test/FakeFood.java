@@ -2,6 +2,8 @@ package test;
 
 import java.awt.Point;
 
+import interfaces.Food;
+
 public class FakeFood implements Food {
 
 	public boolean hasBeenNibbled = false;

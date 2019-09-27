@@ -6,7 +6,7 @@ import interfaces.Food;
 
 public class SimpleAnt implements Ant {
 
-	public Integer id;
+	private final Integer id;
 	private Point point;
 	private int hungerValue =  0;
 	private Food food = null;
@@ -77,9 +77,21 @@ public class SimpleAnt implements Ant {
 		this.point = point;
 	}
 	
-	@Override
 	public void hungrier() {
 		this.hungerValue = this.hungerValue + 1;
+	}
+
+	public boolean hasFood() {
+		return food!=null;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	@Override
+	public Point getPosition() {
+		return this.point;
 	}
 	
 }

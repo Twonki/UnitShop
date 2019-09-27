@@ -47,6 +47,7 @@ public class Food {
 			int nibbledAmount = nutritionValue;
 			this.nutritionValue = 0;
 			return nibbledAmount;
+
 		}
 	}
 	
