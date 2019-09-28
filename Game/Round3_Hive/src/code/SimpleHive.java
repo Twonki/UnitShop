@@ -17,9 +17,19 @@ public class SimpleHive implements Hive {
 	
 	
 	public SimpleHive(Point position, String name, Field field) {
+	if(position.y < 0 || position.x < 0)
+		throw new IllegalArgumentException("neither the x nor the y value of a position can be negative");
+	else		
 		this.position=position;
+	if(name == null || name == "")
+		throw new IllegalArgumentException("Name can not be null or empty");
+	else
 		this.name = name;
+	if(field == null)
+		throw new IllegalArgumentException("Field can not be null");
+	else
 		this.field = field;
+	
 		foodAmount = 0;
 	}
 	
@@ -61,5 +71,8 @@ public class SimpleHive implements Hive {
 		return field;
 	}
 	
+	public int getAntCounter() {
+		return antCounter;
+	}
 
 }

@@ -94,4 +94,14 @@ public class SimpleAnt implements Ant {
 		return this.point;
 	}
 	
+	public int getHungerValue() {
+		return this.hungerValue;
+	}
+	
+	public Food getFood() {
+		return this.food;
+	}
+	
 }
+	
+

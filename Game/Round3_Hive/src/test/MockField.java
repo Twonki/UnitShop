@@ -5,34 +5,32 @@ import interfaces.Ant;
 import interfaces.Field;
 import interfaces.Food;
 
+
 public class MockField implements Field {
 
 	public List<Ant> antsToReturn;
 	public List<Food> foodToReturn;
 	public Ant registeredAnt;
-
+	
 	@Override
 	public List<Ant> getAllAnts() {
-		// TODO Auto-generated method stub
-		return null;
+		return antsToReturn;
 	}
 
 	@Override
 	public List<Food> getAllFood() {
-		// TODO Auto-generated method stub
-		return null;
+		return foodToReturn;
 	}
 
 	@Override
 	public void registerAnt(Ant ToRegister) {
 		// TODO Auto-generated method stub
-		
+		antsToReturn.add(ToRegister);
 	}
 
 	@Override
 	public void update() {
 		// TODO Auto-generated method stub
-		
 	}
 
 }
