@@ -75,7 +75,6 @@ public class HiveTest {
 		foodInRange.setPoint(new Point(3,3));
 		testfield.foodToReturn.add(foodInRange);
 		testhive.update();
-		testfield.getAllFood();
 		
 		assertTrue(foodInRange.hasBeenNibbled);
 	}
@@ -93,6 +92,33 @@ public class HiveTest {
 		assertFalse(foodNotInRange.hasBeenNibbled);
 	}
 	
-	
+	/* before
+	@Test
+	void testUpdate_foodAmountBigger100_shouldCreateNewAnt() {
+		MockField testfield = new MockField();
+		SimpleHive testhive = new SimpleHive(new Point(2,2),"Hive",testfield);
+		FakeFood foodInRange = new FakeFood();
 		
+		int sizeOfAntList = testfield.antsToReturn.size();
+		foodInRange.setPoint(new Point(3,3));
+		for(int i=1;i<=150;i++) {
+			testfield.foodToReturn.add(foodInRange);
+		}
+		testhive.update();
+		
+		assertTrue(sizeOfAntList < testfield.antsToReturn.size());
+	}
+	*/
+	
+	@Test
+	void testUpdate_foodAmountBigger100_shouldCreateNewAnt() {
+		MockField testfield = new MockField();
+		SimpleHive testhive = new SimpleHive(new Point(2,2),"Hive",testfield);		
+	
+		int AntCounterBefore = testhive.getAntCounter();
+		testhive.setFoodAmount(150);
+		testhive.update();
+		
+		assertTrue(AntCounterBefore < testhive.getAntCounter());
+	}
 }

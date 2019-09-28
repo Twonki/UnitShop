@@ -70,4 +70,12 @@ public class SimpleHive implements Hive {
 	public Field getField() {
 		return field;
 	}
+	
+	public void setFoodAmount(int amount) {
+		this.foodAmount = amount;
+	}
+	
+	public int getAntCounter() {
+		return antCounter;
+	}
 }

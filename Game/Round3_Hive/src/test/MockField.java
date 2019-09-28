@@ -21,6 +21,7 @@ public class MockField implements Field {
 	@Override
 	public List<Food> getAllFood() {
 		return foodToReturn;
+		
 	}
 
 	@Override
