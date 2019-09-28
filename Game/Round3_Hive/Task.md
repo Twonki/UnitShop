@@ -14,6 +14,9 @@ The Hive:
 - has a foodamount
 - has a updateMethod
 - has a refference to the field
+- has an antCounter
+- has an absorbNearbyFood Method
+- has a range for picking up food
 
 As soon as the updateMethod is called, the hive will consume all food which is located around it and will produce a new ant if the foodamount is greater than 100.
 
