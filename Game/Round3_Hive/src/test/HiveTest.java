@@ -86,11 +86,13 @@ public class HiveTest {
 		SimpleHive testhive = new SimpleHive(new Point(2,2),"Hive",testfield);
 		FakeFood foodNotInRange = new FakeFood();
 		
-		foodNotInRange.setPoint(new Point(3,3));
+		foodNotInRange.setPoint(new Point(15,15));
 		testfield.foodToReturn.add(foodNotInRange);
 		testhive.update();
 		
 		assertFalse(foodNotInRange.hasBeenNibbled);
 	}
+	
+	
 		
 }

@@ -70,9 +70,4 @@ public class SimpleHive implements Hive {
 	public Field getField() {
 		return field;
 	}
-	
-	public int getAntCounter() {
-		return antCounter;
-	}
-
 }

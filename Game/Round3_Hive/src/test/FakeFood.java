@@ -21,7 +21,7 @@ public class FakeFood implements Food {
 	}
 
 	public Point getPoint() {
-		return null;
+		return setPointInput;
 	}
 
 	public void setPoint(Point point) {
