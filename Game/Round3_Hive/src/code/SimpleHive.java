@@ -17,65 +17,51 @@ public class SimpleHive implements Hive {
 	
 	
 	public SimpleHive(Point position, String name, Field field) {
-	if(position.y < 0 || position.x < 0)
-		throw new IllegalArgumentException("neither the x nor the y value of a position can be negative");
-	else		
-		this.position=position;
-	if(name == null || name == "")
-		throw new IllegalArgumentException("Name can not be null or empty");
-	else
-		this.name = name;
-	if(field == null)
-		throw new IllegalArgumentException("Field can not be null");
-	else
-		this.field = field;
-	
-		foodAmount = 0;
+	//TO DO
+		throw new java.lang.UnsupportedOperationException("Not implemented yet.");
 	}
 	
 	
 	public void update() {
-		absorbNearbyFood();
-		if(foodAmount > 100) {
-			Ant toAdd = new SimpleAnt(antCounter,(int)getPosition().x,(int)getPosition().y);
-			antCounter ++;
-			field.registerAnt(toAdd);
-		}
+		//TO DO
+		throw new java.lang.UnsupportedOperationException("Not implemented yet.");
 	}
 
 	private void absorbNearbyFood() {
-		field.getAllFood()
-			.stream()
-			.filter(food -> food.getPoint().distance(getPosition()) <= range)
-			.map(food -> food.nibble(Integer.MAX_VALUE))
-			.reduce((acc,x) -> acc + x)
-			.ifPresent(x -> foodAmount += x);
+		//TO DO
+		throw new java.lang.UnsupportedOperationException("Not implemented yet.");
 	}
 
 	public Point getPosition() {
-		return position;
+		//TO DO
+		throw new java.lang.UnsupportedOperationException("Not implemented yet.");
 	}
 
 	
 	public int getFoodAmount() {
-		return foodAmount;
+		//TO DO
+		throw new java.lang.UnsupportedOperationException("Not implemented yet.");
 	}
 
 	
 	public String getName() {
-		return name;
+		//TO DO
+		throw new java.lang.UnsupportedOperationException("Not implemented yet.");
 	}
 
 
 	public Field getField() {
-		return field;
+		//TO DO
+		throw new java.lang.UnsupportedOperationException("Not implemented yet.");
 	}
 	
 	public void setFoodAmount(int amount) {
-		this.foodAmount = amount;
+		//TO DO
+		throw new java.lang.UnsupportedOperationException("Not implemented yet.");
 	}
 	
 	public int getAntCounter() {
-		return antCounter;
+		//TO DO
+		throw new java.lang.UnsupportedOperationException("Not implemented yet.");
 	}
 }
