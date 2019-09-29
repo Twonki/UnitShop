@@ -1,5 +1,6 @@
 public class SimpleTeam implements Team {
-    private List<Player> players= new LinkedList<>();
+    private List<Player> players = 
+    	new LinkedList<>();
     
     public List<Player> getPlayers() {
         return  players;

@@ -3,6 +3,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage[english]{babel}
+\usepackage{listings}
 \usetheme{default}
 
 \begin{document}
@@ -55,12 +56,18 @@
 		\end{itemize}
 	\end{frame}
 	
-	\begin{frame}
+	\begin{frame}[fragile]
 		\frametitle{Example 1: Point Distance Test}
+		\begin{scriptsize}
+			\lstinputlisting[language=Java]{./CodeSnippets/DistanceTests.java}	
+		\end{scriptsize}
 	\end{frame}
 	
-	\begin{frame}
+	\begin{frame}[fragile]
 		\frametitle{Example 1: Point Distance Code}
+		\begin{small}
+			\lstinputlisting[language=Java]{./CodeSnippets/Point.java}	
+		\end{small}
 	\end{frame}
 	
 	\begin{frame}
@@ -143,10 +150,27 @@
 	\end{frame}
 
 	\begin{frame}
-		\frametitle{Example 2: FakePlayer for real-Team-Test}
-		
+		\frametitle{Example 2: StubPlayer}
+		\begin{small}
+			\lstinputlisting[language=Java]{./CodeSnippets/Player.java}
+			\lstinputlisting[language=Java]{./CodeSnippets/StubPlayer.java}	
+		\end{small}
 	\end{frame}
-	
+
+	\begin{frame}
+		\frametitle{Example 2: SimpleTeam}
+		\begin{small}
+			\lstinputlisting[language=Java]{./CodeSnippets/SimpleTeam.java}	
+		\end{small}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Example 2: Team-Tests}
+		\begin{scriptsize}
+			\lstinputlisting[language=Java]{./CodeSnippets/SimpleTeamTest.java}	
+		\end{scriptsize}
+	\end{frame}
+
 	\begin{frame}
 		\frametitle{Stubs: Why Interfaces are your friends}
 		To do a real nice set of stubs, you need interfaces. e.g. \textit{Player}. 
@@ -173,9 +197,27 @@
 	\end{frame}
 
 	\begin{frame}
-		\frametitle{Example 3: MockTeam for real-Player-Tests}
+		\frametitle{Example 3: MockTeam}
+		\begin{small}
+			\lstinputlisting[language=Java]{./CodeSnippets/Team.java}
+			\lstinputlisting[language=Java]{./CodeSnippets/MockTeam.java}	
+		\end{small}
 	\end{frame}
 	
+	\begin{frame}
+		\frametitle{Example 3: SimplePlayer}
+		\begin{small}
+			\lstinputlisting[language=Java]{./CodeSnippets/SimplePlayer.java}	
+		\end{small}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Example 3: Team-Tests}
+		\begin{scriptsize}
+		\lstinputlisting[language=Java]{./CodeSnippets/SimplePlayerTest.java}	
+		\end{scriptsize}
+	\end{frame}
+
 	\begin{frame}
 		\frametitle{Stubs vs. Mocks vs. Fakes}
 		
@@ -223,7 +265,7 @@
 		
 		The tests may be red for a long time if the code is complex. 	
 
-\end{frame}
+	\end{frame}
 
 	\begin{frame}
 		\frametitle{Test-Driven-Development}

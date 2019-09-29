@@ -9,6 +9,7 @@ public class Point{
     public double distanceTo(Point other){
         double xdif = x - other.x;
         double ydif = y - other.y;
-        return Math.sqrt( xdif * xdif + ydif * ydif );
+        double intermediate = xdif * xdif + ydif * ydif
+        return Math.sqrt( intermediate	);
     }
 }
