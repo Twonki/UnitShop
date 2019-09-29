@@ -21,6 +21,7 @@ The Hive:
 Constraints:
 - the id name can not be empty
 - the position cannot be null or negative (neither x nor y)
+- field can not be null
 
 As soon as the updateMethod is called, the hive will consume all food which is located around it (in it's Range) and will produce a new ant if the foodamount is greater than 100.
 
