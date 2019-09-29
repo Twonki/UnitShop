@@ -3,18 +3,12 @@
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage[english]{babel}
+\usepackage{listings}
 \usetheme{default}
 
 \begin{document}
 	\author{Leonhard Applis}
 	\title{Unit-Testing Essentials}
-	%\subtitle{}
-	%\logo{}
-	%\institute{}
-	%\date{}
-	%\subject{}
-	%\setbeamercovered{transparent}
-	%\setbeamertemplate{navigation symbols}{}
 	\begin{frame}[plain]
 		\maketitle
 	\end{frame}
@@ -41,6 +35,7 @@
 			\item testing whether the sort() function of your list sorts the list 
 			\item testing whether a constructor fails for null-values
 		\end{itemize}
+		~\newline
 		These are \textbf{not} Unit Tests...
 		\begin{itemize}
 			\item read and write to an database 
@@ -61,12 +56,18 @@
 		\end{itemize}
 	\end{frame}
 	
-	\begin{frame}
+	\begin{frame}[fragile]
 		\frametitle{Example 1: Point Distance Test}
+		\begin{scriptsize}
+			\lstinputlisting[language=Java]{./CodeSnippets/DistanceTests.java}	
+		\end{scriptsize}
 	\end{frame}
 	
-	\begin{frame}
+	\begin{frame}[fragile]
 		\frametitle{Example 1: Point Distance Code}
+		\begin{small}
+			\lstinputlisting[language=Java]{./CodeSnippets/Point.java}	
+		\end{small}
 	\end{frame}
 	
 	\begin{frame}
@@ -75,7 +76,7 @@
 			\item \textit{@Test} marks that the following function is a Test
 			\item \textit{assertEquals(expected,actual)} is used to check values - warning: for objects the \textit{equals()} method is used 
 			\item \textit{assertFalse(...),assertTrue(...),assertThrowsException(...)} are shortcuts to write smaller and more expressive tests
-			\item \textit{@Tag "xy"} gives the test a filterable tag, e.g. you could run only \textit{fast} tests
+			\item \textit{@Tag "xy"} gives the test a filterable tag, e.g. you could run only \textit{player-related} tests
 		\end{itemize}
 	\end{frame}
 
@@ -83,14 +84,44 @@
 
 	\begin{frame}
 		\frametitle{Best Practice - No Global Dependencies}
+		Do not use (static) global variables in your tests if it's not absolutely necessary! 
+		
+		Reasons: 
+		\begin{itemize}
+			\item Tests may fail because of their order
+			\item if the dependency changes, every tests needs to change
+			\item functions like \textit{resetDB()} after every tests maybe fail because of parallel execution
+			\item deactivating parallel-execution is bad
+			\item the items you need are not written in your tests, but have to be looked up
+		\end{itemize}
+	
+		Mitigation: \textbf{create the dependency in every test}. If you have a common pattern, you may want to use a \textit{factory method} which returns a new, default instance of your  dependency.
 	\end{frame}
 	
 	\begin{frame}
 		\frametitle{One 'Test' per Test}
+		Only do \textit{one Assert per test!} \newline
+		If you are doing multiple asserts, you usually also have multiple tests. 
+		
+		If you try to assert two things in one statement, you are not sure if the later one would be right if the first one failed.
+		~\newline
+		\textbf{negative:} A lot more tests, A lot more code in general
+		~\newline
+		\textbf{positive:} Clearer tests, tests are more maintainable, ~\newline more test mean more green tests, which makes you happy. 
 	\end{frame}
 	
 	\begin{frame}
 		\frametitle{Arrange - Act - Assert}
+		Write your tests with a common pattern: 
+		\begin{enumerate}
+			\item \textbf{Arrange:} Create every item required for the test
+			\item \textbf{Act:} Perform every Action required for the test
+			\item \textbf{Assert:} Perform the Check(s)
+		\end{enumerate}
+		~\newline
+		Split those points by a single line, and you'll have a nice, common pattern. \newline
+		Don't do \textit{Arrange-Act-Rearrange-Act-Assert!} ~\newline
+		Never do \textit{Arrange-Act-Assert-Act-Assert!}
 	\end{frame}
 	
 	\section{Stubs and Mocks}
@@ -107,51 +138,161 @@
 
 	\begin{frame}
 		\frametitle{Stubs}
+		A stub is a testclass which implements a given interface, which can be used as \textit{fakeInput} for another test. 
+		
+		~\newline
+		A stub is \textit{input only}, so the stub will not be changed after generation. \textbf{A stub provides behaviour}. 
+		~\newline
+		e.g: a function \textit{addPlayer(InterfacePlayer)} from the class \textit(team) may use a stubPlayer
+		
+		~\newline
+		\textbf{primary reason for stubs:} stubs act the way you want, without having any logic. The tests of \textit{team} would maybe fail if the \textit{RealPlayer} would have failures. 
 	\end{frame}
 
 	\begin{frame}
-		\frametitle{Example 2: UpdateManager}
+		\frametitle{Example 2: StubPlayer}
+		\begin{small}
+			\lstinputlisting[language=Java]{./CodeSnippets/Player.java}
+			\lstinputlisting[language=Java]{./CodeSnippets/StubPlayer.java}	
+		\end{small}
 	\end{frame}
-	
+
+	\begin{frame}
+		\frametitle{Example 2: SimpleTeam}
+		\begin{small}
+			\lstinputlisting[language=Java]{./CodeSnippets/SimpleTeam.java}	
+		\end{small}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Example 2: Team-Tests}
+		\begin{scriptsize}
+			\lstinputlisting[language=Java]{./CodeSnippets/SimpleTeamTest.java}	
+		\end{scriptsize}
+	\end{frame}
+
 	\begin{frame}
 		\frametitle{Stubs: Why Interfaces are your friends}
-	\end{frame}
+		To do a real nice set of stubs, you need interfaces. e.g. \textit{Player}. 
+		~\newline
+		Interfaces \textit{clean your code}, analyze and generalize behavior. You can tell what a class should be doing by the implemented interfaces (atleast with good names used).
+		~\newline
+		In object oriented languages (such as C-Sharp and Java) it is considered best practice to only use interfaces as inputs (especially in interfaces) which is called \textit{programming against interfaces}.
+	\end{frame} 
 
 	\begin{frame}
 		\frametitle{Mocks}
+		A mock is somewhat the opposite of a stub: 
+		The stub provides behavior, the mock \textit{takes} behavior.
+		
+		~\newline
+		A mock is considered \textit{write only}, except for the asserts. 
+		
+		~\newline
+		Example: The function \textit{addToTeam(Team)} of the class \textit{Player} would need a \textit{MockTeam}. 
+		The mock team \textit{safes} that the class was touched in the expected way.
+		
+		~\newline
+		\textbf{warning:} in some languages, such as JS, everything is called a mock. 
 	\end{frame}
 
 	\begin{frame}
-		\frametitle{Example 3}
+		\frametitle{Example 3: MockTeam}
+		\begin{small}
+			\lstinputlisting[language=Java]{./CodeSnippets/Team.java}
+			\lstinputlisting[language=Java]{./CodeSnippets/MockTeam.java}	
+		\end{small}
 	\end{frame}
 	
 	\begin{frame}
+		\frametitle{Example 3: SimplePlayer}
+		\begin{small}
+			\lstinputlisting[language=Java]{./CodeSnippets/SimplePlayer.java}	
+		\end{small}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Example 3: Team-Tests}
+		\begin{scriptsize}
+		\lstinputlisting[language=Java]{./CodeSnippets/SimplePlayerTest.java}	
+		\end{scriptsize}
+	\end{frame}
+
+	\begin{frame}
 		\frametitle{Stubs vs. Mocks vs. Fakes}
+		
+		\begin{itemize}
+			\item \textbf{A Stub} provides behavior and is \textit{read only}. 
+			\item \textbf{A Mock} accepts behavior and actions and is \textbf{write only}
+			\item \textbf{A Fake} is a combination of a stub and a mock. 
+		\end{itemize}
+	
+		~\newline
+		You may consider calling everything a fake, as the term \textit{Mock} is overloaded (and misused) in some languages and frameworks, while the term stub is unknown to a lot of people.  
 	\end{frame}
 	
 	\section{TestStrategy: Test-First vs Test-Last-If-Ever}
 	
 	\begin{frame}
 		\frametitle{Naming - Good vs. Bad}
+		Names of the tests are very important for readability of reports. 
+		example bad-names: \textit{testCalculate, testCalculateFails, testCollide, testCollide2 ...}
+		
+		the name of the test should include:
+		\begin{enumerate}
+			\item the function under test
+			\item a summary of the setup 
+			\item the expected result
+		\end{enumerate}
+	
+		simple test-name-pattern for beginners: \newline
+		\textit{testFunction-WithBadInput-shouldThrowError} \newline
+		\textit{testConstructor-withValidAttributes-shouldBeBuild}
 	\end{frame}
 	
 	\begin{frame}
 		\frametitle{Test First}
+		The primary idea of \textit{test first} is to write unit-tests for the expected behavior without writing any line of the \textit{real code}. 
+		~\newline
+		Normal workflow: \textit{write code -> extract interface -> write tests}. 
+		~\newline
+		Test First worklow: \textit{write interface -> write tests -> write code}
+
+		~\newline
+		\textbf{benefits:} The requirements and behavior must be defined beforehand, the code is properly tested, the code is using interfaces.
+		~\newline
+		\textbf{downsides:} If the class is complex, the design and testing may take very long. 
+		
+		The tests may be red for a long time if the code is complex. 	
+
 	\end{frame}
 
 	\begin{frame}
 		\frametitle{Test-Driven-Development}
 		\framesubtitle{RED-GREEN-REFACTOR}
+		\textbf{TDD} is a specified subclass of \textit{test-first}. 
+		\begin{enumerate}
+			\item pick an item from the todo list
+			\item write a non-passing test
+			\item write code to pass the test
+			\item clean up the class until it looks nice, but keep the tests as-is
+			\item repeat
+		\end{enumerate}
+		\textbf{Where you should never have more than one red test!}
+	
+	
+		~\newline
+		downsides: refactoring is sometimes left out, not appliable for complex problems - only for \textit{commodity code}.
 	\end{frame}
 
 	\begin{frame}
 		\frametitle{TDD-Schools}
 		\begin{enumerate}
-			\item \textbf{London-School:} "Mock Everything" \newline Mocking forces nice interfaces and code that uses nice interfaces. 
-			\item \textbf{Chicago-School:} "Mock Nothing" 
+			\item \textbf{London-School:} \textit{Mock Everything} \newline Mocking forces nice interfaces and code that uses nice interfaces.  
+			\item \textbf{Chicago-School:} \textit{Mock Nothing} 
 			\newline Mocking bloats the code, and makes sometimes no sense. 
-			\item \textbf{Munich-School:}" "Mock what makes sense" 
-			\newline don´t focus on a "school" - do what goes best and respect the language 
+			\item \textbf{Munich-School:}\textit{Mock what makes sense} 
+			\newline dont focus on a school - do what goes best and respect the language 
 		\end{enumerate}
 	\end{frame}
 	
