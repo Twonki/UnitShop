@@ -1,0 +1,4 @@
+\frametitle{Example 1: Point Distance Code}
+		\begin{small}
+			\lstinputlisting[language=Java]{./CodeSnippets/Point.java}	
+		\end{small}
