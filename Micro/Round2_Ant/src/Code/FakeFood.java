@@ -3,31 +3,21 @@ package Code;
 import java.awt.Point;
 
 public class FakeFood implements Food {
-
-	public boolean hasBeenNibbled = false;
-	public int nibbleReturnValue;
-	public int nibbleInputValue;
-	
-	public Point setPointInput;
-	
-	public int nutritionReturnValue;
 	
 	public int nibble(int nibble) {
-		nibbleInputValue = nibble;
-		hasBeenNibbled = true;
-		return nibbleReturnValue;
+		throw new UnsupportedOperationException("Not yet implemented");
 	}
 
 	public Point getPoint() {
-		return null;
+		throw new UnsupportedOperationException("Not yet implemented");
 	}
 
 	public void setPoint(Point point) {
-		setPointInput = point;
+		throw new UnsupportedOperationException("Not yet implemented");
 	}
 
 	public int getNutritionValue() {
-		return nutritionReturnValue;
+		throw new UnsupportedOperationException("Not yet implemented");
 	}
 
 }
