@@ -33,7 +33,7 @@ Check all common scenarios for a unit-test.
 Where fails means that the test run properly, but the property is wrong. Write the name. 
 
 ```
-color:
+
 ```
 
 **Which of the following are possible `asserts`?**
@@ -51,7 +51,7 @@ Check the correct answers.
 Write the number inside the box.
 
 ```
-number:
+
 ```
 
 **Which is the correct order?**
@@ -62,17 +62,26 @@ Write the digits "1","2" and "3" inside the box.
 - [ ]  Arrange
 - [ ]  Act
 
-**TODO: Mock Fake Image**
+
+**How are mock-, fake- and stub-objects defined?**
+
+Draw a line to the fitting answer. 
+
+![Quest1](/Sources/QuestionaireImages/MockFakeStubQuestion.png)
 
 **Give an example of good naming for a test function**
 
 Write the name of the function in the field below. You can use an example from the exercise if you want. 
 
 ```
-sample: 
+
 ```
 
-**TODO Workflow Image**
+**How does TTD compare to normal programming?**
+
+Draw a line to the fitting answer. 
+
+![Quest2](/Sources/QuestionaireImages/TDDWorkflowQuestion.PNG)
 
 **How is Test Driven Development thought to be done?**
 
@@ -107,21 +116,25 @@ Give a number from 1 to 10.
 - [ ]  Yes
 - [ ]  No
 
-**TODO: Matrix of Question**
 
+**Overall summary**
+
+Please check the appropiate circles.
+
+![Quest3](/Sources/QuestionaireImages/QuestionMatrix.PNG)
 
 ### Optional
 
 **How old are you?**
 
 ```
-years:
+
 ```
 
 **How long are you in CS or Programming?**
 
 ```
-years:
+
 ```
 
 **Gender**
