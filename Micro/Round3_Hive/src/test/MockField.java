@@ -15,24 +15,22 @@ public class MockField implements Field {
 	
 	@Override
 	public List<Ant> getAllAnts() {
-		return antsToReturn;
+		throw new UnsupportedOperationException("Not yet implemented");
 	}
 
 	@Override
 	public List<Food> getAllFood() {
-		return foodToReturn;
-		
+		throw new UnsupportedOperationException("Not yet implemented");
 	}
 
 	@Override
 	public void registerAnt(Ant ToRegister) {
-		// TODO Auto-generated method stub
-		antsToReturn.add(ToRegister);
+		throw new UnsupportedOperationException("Not yet implemented");
 	}
 
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Not yet implemented");
 	}
 
 }
