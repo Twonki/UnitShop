@@ -11,6 +11,9 @@
 /**.snm
 /**.nav
 
+**.class
+**/bin/.*
+
 /**/*.aux
 /Sources/*.aux
 /Sources/*.out
